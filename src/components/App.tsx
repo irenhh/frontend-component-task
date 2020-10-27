@@ -3,6 +3,7 @@ import {USER_ACTIONS} from '../constants/constants';
 import {PermissionsBlock} from './PermissionsBlock/PermissionsBlock';
 import {Select} from './Select/Select';
 import {RoleType} from '../constants/constants.types';
+import {FieldWrapper, FormContainer, SubmitButton} from './style';
 
 export const App = () => {
   const [role, setRole] = useState<RoleType>(RoleType.ADMIN);
@@ -26,16 +27,18 @@ export const App = () => {
   };
 
   return (
-    <div className="FormContainer">
+    <FormContainer>
       <form onSubmit={submitResult}>
-        <Select role={role} setRole={setRole} />
+        <FieldWrapper>
+          <Select role={role} setRole={setRole} />
 
-        <PermissionsBlock permissionsList={USER_ACTIONS} listName="Folders" role={role} />
+          <PermissionsBlock permissionsList={USER_ACTIONS} listName="Folders" role={role} />
 
-        <PermissionsBlock permissionsList={USER_ACTIONS} listName="Gems" role={role} />
+          <PermissionsBlock permissionsList={USER_ACTIONS} listName="Gems" role={role} />
+        </FieldWrapper>
 
-        <button type="submit">Save</button>
+        <SubmitButton type="submit">Save</SubmitButton>
       </form>
-    </div>
+    </FormContainer>
   );
 };
