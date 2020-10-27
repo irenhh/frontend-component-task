@@ -2,20 +2,17 @@ import styled, {css} from 'styled-components';
 import {Title} from '../general.styles';
 
 export const SelectWrapper = styled.div`
-  ${({theme}) => css`
-    margin-bottom: 20px;
-  `}
+  margin-bottom: 20px;
 `;
 
 export const SelectLabel = styled.div`
-  ${({theme}) => css`
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 
-    ${Title} {
-      margin-right: 8px;
-    }
-  `}
+  ${Title} {
+    margin-right: 8px;
+  }
 `;
 
 export const CustomSelectWrapper = styled.div`

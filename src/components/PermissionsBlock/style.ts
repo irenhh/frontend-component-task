@@ -6,6 +6,11 @@ export const PermissionsBlockWrapper = styled.div`
     padding-bottom: 20px;
     border-bottom: 2px solid ${theme.color.background};
 
+    &:last-of-type {
+      border: 0;
+      padding-bottom: 0;
+    }
+
     ${Title} {
       margin: 20px 0 15px;
     }
@@ -13,40 +18,33 @@ export const PermissionsBlockWrapper = styled.div`
 `;
 
 export const PermissionsBlockFields = styled.div`
-  ${({theme}) => css`
-    display: flex;
-  `}
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 export const PermissionsItemLabel = styled.label`
-  ${({theme}) => css`
-    display: flex;
-    align-items: center;
-    margin-right: 12px;
-  `}
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
 `;
 
 export const PermissionsItemIcon = styled.label`
-  ${({theme}) => css`
-    margin-right: 8px;
-    cursor: pointer;
+  margin-right: 8px;
+  cursor: pointer;
 
-    &.disabled {
-      cursor: not-allowed;
-    }
+  &.disabled {
+    cursor: not-allowed;
+  }
 
-    svg {
-      display: block;
-      width: 15px;
-      height: 15px;
-    }
-  `}
+  svg {
+    display: block;
+    width: 15px;
+    height: 15px;
+  }
 `;
 
 export const PermissionsItemText = styled.p`
-  ${({theme}) => css`
-    &.active {
-      font-weight: bold;
-    }
-  `}
+  &.active {
+    font-weight: bold;
+  }
 `;
