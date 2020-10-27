@@ -1,6 +1,6 @@
 {
   "name": "@shelf/xxxxxx",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "xxxxxx",
   "license": "MIT",
   "author": {
@@ -8,19 +8,21 @@
     "email": "vlad@shelf.io",
     "url": "https://shelf.io"
   },
+  "main": "lib",
+  "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
-  "main": "lib",
-  "types": "lib/index.d.ts",
   "scripts": {
     "build": "rm -rf lib/ && yarn build:types && yarn build:code",
     "build:code": "babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts' && find ./lib -name '*.test.d.ts' -delete",
     "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib",
     "coverage": "yarn test --coverage",
+    "eject": "react-scripts eject",
     "lint": "eslint . --ext .js,.ts,.json --fix",
     "lint:ci": "eslint . --ext .js,.ts,.json",
     "prepack": "yarn build",
+    "start": "react-scripts start",
     "test": "TZ=UTC jest src",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
@@ -41,11 +43,40 @@
       "git add"
     ]
   },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "prettier": "@shelf/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
   "jest": {
     "testEnvironment": "node"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "@types/styled-components": "^5.1.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.0",
+    "styled-components": "^5.2.0"
+  },
   "devDependencies": {
     "@babel/cli": "7.8.4",
     "@babel/core": "7.9.0",
@@ -55,10 +86,10 @@
     "@shelf/prettier-config": "0.0.1",
     "@types/jest": "26.0.9",
     "@types/node": "12",
-    "babel-jest": "26.2.2",
-    "eslint": "7.7.0",
+    "babel-jest": "26.6.0",
+    "eslint": "7.11.0",
     "husky": "4.2.5",
-    "jest": "26.2.2",
+    "jest": "26.6.0",
     "lint-staged": "10.2.11",
     "prettier": "2.0.5",
     "typescript": "3.8.3"

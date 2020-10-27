@@ -2,5 +2,9 @@
   "root": true,
   "extends": [
     "@shelf/eslint-config/typescript"
-  ]
+  ],
+  "rules": {
+    "jest/no-test-callback": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
+  }
 }
