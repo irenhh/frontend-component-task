@@ -10,7 +10,7 @@ export const App = () => {
 
   const submitResult = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const {elements, role} = e.target as HTMLFormElement;
+    const {elements} = e.target as HTMLFormElement;
 
     const permissions = [...elements].filter((el) => {
       const {checked} = el as HTMLInputElement;
@@ -19,7 +19,7 @@ export const App = () => {
     });
 
     const result = {
-      role: role.value,
+      role,
       permissions: permissions.map((permission) => permission.id)
     };
 

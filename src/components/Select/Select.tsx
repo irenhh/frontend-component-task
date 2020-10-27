@@ -1,8 +1,17 @@
-import React, {Dispatch, FC, SetStateAction} from 'react';
+import React, {Dispatch, FC, SetStateAction, useState} from 'react';
+import cn from 'classnames';
 import {ROLES} from '../../constants/constants';
 import {RoleType} from '../../constants/constants.types';
-import {SelectWrapper} from './style';
+import {
+  CustomSelect,
+  CustomSelectList,
+  CustomSelectOption,
+  CustomSelectWrapper,
+  SelectLabel,
+  SelectWrapper
+} from './style';
 import {Title} from '../general.styles';
+import {ArrowIcon} from '../../images/ArrowIcon';
 
 type Props = {
   role: RoleType;
@@ -10,23 +19,41 @@ type Props = {
 };
 
 export const Select: FC<Props> = ({role, setRole}) => {
+  const [optionVisible, setOptionVisible] = useState(false);
+
   return (
     <SelectWrapper>
-      <label>
+      <SelectLabel>
         <Title>User Role</Title>
-        <select
-          id="role"
-          name="role"
-          value={role}
-          onChange={(e) => setRole(e.target.value as RoleType)}
-        >
-          {ROLES.map((role) => (
-            <option key={role.id} value={role.type}>
-              {role.text}
-            </option>
-          ))}
-        </select>
-      </label>
+        <CustomSelectWrapper>
+          <CustomSelect
+            className={cn({
+              active: optionVisible
+            })}
+            onClick={() => setOptionVisible(!optionVisible)}
+          >
+            {role}
+            <ArrowIcon />
+          </CustomSelect>
+
+          {optionVisible && (
+            <CustomSelectList>
+              {ROLES.map((role) => (
+                <CustomSelectOption
+                  key={role.id}
+                  data-name={role.type}
+                  onClick={() => {
+                    setRole(role.type);
+                    setOptionVisible(false);
+                  }}
+                >
+                  {role.text}
+                </CustomSelectOption>
+              ))}
+            </CustomSelectList>
+          )}
+        </CustomSelectWrapper>
+      </SelectLabel>
     </SelectWrapper>
   );
 };
