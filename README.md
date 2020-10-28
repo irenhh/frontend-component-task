@@ -1,62 +1,21 @@
-# Component
-Estimated task time **4h.** (possibly more or less). Please commit gradually to see progress of task completion.
-Please use React (in away you want), CSS/SCSS/less/Styled components does not matter
+[DEMO LINK](https://irenhh.github.io/frontend-component-task/)
 
+This project was made as a part of a JavaScript Test Assignment. <br />
+It shows a form where you can choose a role and get a corresponding set of permissions. After submitting the form you can see what permissions and role you have.
 
-Main objective:
+**The project was implemented using the following stack:**
 
+- React
+- TypeScript
+- styled components
 
-![role](materials/role-module.png)
+**You can clone the repository and run the project on your machine.** <br />
 
-Make component with UI shown above. Inside dropdown should have:
- - Dropdown predefined values (User, Member, Admin) + "Custom" role
- - Changed predefined values(User, Member, Admin) in dropdown will update state of checkboxes to different values
-    - All predefined roles will have no possibility(read-only) to change values of checkboxes
- - Selecting "Custom" role will allow to set any positions of checkboxes
-    - Default state: all checkboxes unchecked
+- run `npm i` to install dependencies. <br />
+- run `npm start` to view the app in the development mode. <br />
+- open _http://localhost:3000_ to view it in the browser.
 
-Role examples:
-- Admin - all checkboxes enabled
-- User - can't move/delete gems and folders
-- Member - can only view and share gems and folders
-
-Goals:
-- [ ] Make checkboxes(images inside [materials folder](/materials)) and dropdowns components (without native select, checkbox and without UI Frameworks)
-- [ ] Callback on changing user role(dropdown) will return current role and checkbox state
-- [ ] On save invoke callback with current value with role and checkbox states
-
-
-Bonus points:
-- [ ] Simple responsive (not over the head but not broken)
-- [ ] Component covered with unit/integration tests
-- [ ] Readable and understandable types(TS)
-- [ ] Dev docs - how to use component (as it like npm module)
-- [ ] Build - script to minified lib version
-- [ ] Crossbrowser prefixed styles + polyfills (production readiness + IE11)
-
-## Install
-
-```
-$ yarn add @shelf/xxxxxx
-```
-
-## Usage
-
-```js
-const {getFoo} = require('@shelf/xxxxxx');
-
-getFoo();
-```
-
-## Publish
-
-```sh
-$ git checkout master
-$ yarn version
-$ yarn publish
-$ git push origin master --tags
-```
-
-## License
-
-MIT © [Shelf](https://shelf.io)
+**Screenshots:**
+![desktop](screenshots/desktop.png)
+<br /><br />
+![mobile](screenshots/mobile.png)
