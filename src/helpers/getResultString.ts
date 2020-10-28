@@ -3,7 +3,7 @@ type ResultObj = {
   permissions: string[];
 };
 
-export const getResultString = (resultObj: ResultObj) => {
+export const getResultString = (resultObj: ResultObj): string => {
   const perm = resultObj.permissions.map((el) => {
     const parts = el.split('_');
 
@@ -13,7 +13,7 @@ export const getResultString = (resultObj: ResultObj) => {
     };
   });
 
-  const string = perm.reduce<{[key: string]: string[]}>((acc, item, i, arr) => {
+  const string = perm.reduce<{[key: string]: string[]}>((acc, item) => {
     if (!acc[item.type]) {
       return {
         ...acc,
