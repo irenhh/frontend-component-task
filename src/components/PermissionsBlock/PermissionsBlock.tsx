@@ -62,7 +62,6 @@ export const PermissionsBlock: FC<Props> = ({permissionsList, listName, role}) =
 
                     setCheckedList((checkedList) => {
                       const result = [...checkedList];
-                      console.log(result[i], i);
                       result[i] = !result[i];
 
                       return result;

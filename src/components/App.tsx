@@ -4,6 +4,7 @@ import {PermissionsBlock} from './PermissionsBlock/PermissionsBlock';
 import {Select} from './Select/Select';
 import {RoleType} from '../constants/constants.types';
 import {FieldWrapper, FormContainer, SubmitButton} from './style';
+import {getResultString} from '../helpers/getResultString';
 
 export const App = () => {
   const [role, setRole] = useState<RoleType>(RoleType.ADMIN);
@@ -23,7 +24,7 @@ export const App = () => {
       permissions: permissions.map((permission) => permission.id)
     };
 
-    console.log(result);
+    alert(getResultString(result));
   };
 
   return (

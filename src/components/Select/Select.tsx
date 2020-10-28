@@ -30,6 +30,7 @@ export const Select: FC<Props> = ({role, setRole}) => {
             className={cn({
               active: optionVisible
             })}
+            type="button"
             onClick={() => setOptionVisible(!optionVisible)}
           >
             {role}
